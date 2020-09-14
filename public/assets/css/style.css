@@ -1,5 +1,6 @@
 /* FONT */
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 * {
     margin: 0;
@@ -8,8 +9,53 @@
 
 .navbar-style {
     box-shadow: 0 0.3px 5px #5a5959;
-    ;
+    font-family: 'Lato', sans-serif;
 }
+
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.navbar-toggler {
+    background: #fff;
+}
+
+.nav-link {
+    padding: .2rem 1rem;
+}
+
+.masuk {
+    color: #f39c12 !important;
+}
+
+.masuk:hover {
+    border: 1px solid #f39c12;
+}
+
+.nav-link.active,
+.nav-link:focus {
+    color: #fff;
+}
+
+.navbar-toggler {
+    padding: 1px 5px;
+    font-size: 18px;
+    line-height: 0.3;
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #fff;
+}
+
+/* //////////////////////////////////// */
 
 .image-carousel {
     width: 100%;
@@ -61,44 +107,57 @@
     letter-spacing: 2px;
 }
 
-.navbar-light .navbar-nav .active>.nav-link,
-.navbar-light .navbar-nav .nav-link.active,
-.navbar-light .navbar-nav .nav-link.show,
-.navbar-light .navbar-nav .show>.nav-link {
-    color: #fff;
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color: #fff;
-}
-
-.navbar-toggler {
-    background: #fff;
-}
-
-.nav-link {
-    padding: .2rem 1rem;
-}
-
-.nav-link.active,
-.nav-link:focus {
-    color: #fff;
-}
-
-.navbar-toggler {
-    padding: 1px 5px;
-    font-size: 18px;
-    line-height: 0.3;
-}
-
-.navbar-light .navbar-nav .nav-link:focus,
-.navbar-light .navbar-nav .nav-link:hover {
-    color: #fff;
-}
-
 /* //////////////////////////////////// */
 
-#content h1 {
+#hot-sale h1 {
     text-align: center;
     font-family: 'Lobster', cursive;
+    color: #f39c12;
+}
+
+#hot-sale .card-img-top {
+    padding: 0;
+    margin-left: -15px;
+    width: 290px;
+    height: 180px;
+}
+
+#hot-sale .card-title {
+    color: #f39c12;
+}
+
+/* ////////////////////////////////////// */
+
+#menu {
+    padding-top: 80px;
+}
+
+#menu .filter {
+    margin-top: 20px;
+}
+
+#menu h3{
+    text-align: center;
+    color: #f39c12;
+}
+
+#menu hr {
+    margin: auto;
+    width: 50%;
+}
+
+#menu .card {
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+#menu .card-img-top {
+    padding: 0;
+    margin-left: -15px;
+    width: 265px;
+    height: 170px;
+}
+
+#menu .card-title {
+    color: #f39c12;
 }
