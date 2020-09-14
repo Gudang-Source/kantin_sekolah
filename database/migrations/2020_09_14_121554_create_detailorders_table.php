@@ -14,8 +14,12 @@ class CreateDetailordersTable extends Migration
     public function up()
     {
         Schema::create('detailorders', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('id_detai_order');
+            $table->integer('id_order');
+            $table->integer('id_menu');
+            $table->string('keterangan');
+            $table->string('status_detail_order');
+            $table->integer('tanggal_order');
         });
     }
 

@@ -14,8 +14,9 @@ class CreateLevelsTable extends Migration
     public function up()
     {
         Schema::create('levels', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('id_level');
+            $table->string('nama_level');
+            $table->integer('tanggal_ditambahkan');
         });
     }
 
