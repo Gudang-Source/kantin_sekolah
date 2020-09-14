@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'KantinController@index')->name('kantin.index');
+Route::get('/auth', 'KantinController@auth')->name('kantin.auth');
