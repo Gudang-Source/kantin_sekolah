@@ -19,3 +19,7 @@ Route::get('/', function () {
 
 Route::get('/home', 'KantinController@index')->name('kantin.index');
 Route::get('/auth', 'KantinController@auth')->name('kantin.auth');
+
+// Admin
+Route::get('/admin/index', 'AdminController@index')->name('admin.index');
+Route::get('/admin/menu', 'AdminController@menu')->name('admin.menu');
