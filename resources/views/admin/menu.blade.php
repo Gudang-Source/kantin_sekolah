@@ -43,12 +43,12 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Menunggu Persetujuan</h5>
+                        <h5 class="card-title">Menu</h5>
                         <div class="table-responsive">
                             <table class="table table-bordered" id="tabelMenu" width="100%" cellspacing="0">
                                 <thead style="font-weight: bold;">
                                     <tr class="text-center">
-                                        <th>ID</th>
+                                        <th>#</th>
                                         <th>Judul Laporan</th>
                                         <th>Kategori</th>
                                         <th>Status</th>

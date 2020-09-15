@@ -13,4 +13,8 @@ class AdminController extends Controller
     public function menu() {
         return view('admin/menu');
     }
+    
+    public function detail_menu() {
+        return view('admin/detail-menu');
+    }
 }

@@ -23,3 +23,4 @@ Route::get('/auth', 'KantinController@auth')->name('kantin.auth');
 // Admin
 Route::get('/admin/index', 'AdminController@index')->name('admin.index');
 Route::get('/admin/menu', 'AdminController@menu')->name('admin.menu');
+Route::get('/admin/detail_menu', 'AdminController@detail_menu')->name('admin.detail_menu');
