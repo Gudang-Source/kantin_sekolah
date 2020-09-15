@@ -7,6 +7,10 @@
     padding: 0;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .navbar-style {
     box-shadow: 0 0.3px 5px #5a5959;
     font-family: 'Lato', sans-serif;
@@ -48,6 +52,14 @@
     padding: 1px 5px;
     font-size: 18px;
     line-height: 0.3;
+}
+
+.navbar-light .navbar-brand {
+    color: #fff;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
 .navbar-light .navbar-nav .nav-link:focus,
@@ -99,14 +111,6 @@
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
 
-.navbar-light .navbar-brand {
-    color: #fff;
-    font-size: 25px;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
 /* //////////////////////////////////// */
 
 #hot-sale h1 {
@@ -115,11 +119,14 @@
     color: #f39c12;
 }
 
+#hot-sale .card {
+    width: 265px;
+    margin: 10px;
+}
+
 #hot-sale .card-img-top {
-    padding: 0;
-    margin-left: -15px;
-    width: 290px;
-    height: 180px;
+    width: auto;
+    height: 200px;
 }
 
 #hot-sale .card-title {
@@ -137,6 +144,7 @@
 }
 
 #menu h3{
+    font-family: 'Lobster', cursive;
     text-align: center;
     color: #f39c12;
 }
@@ -147,15 +155,14 @@
 }
 
 #menu .card {
-    margin-left: 50px;
-    margin-top: 20px;
+    margin: 10px;
+    width: 290px;
 }
 
 #menu .card-img-top {
     padding: 0;
-    margin-left: -15px;
-    width: 265px;
-    height: 170px;
+    width: auto;
+    height: 200px;
 }
 
 #menu .card-title {

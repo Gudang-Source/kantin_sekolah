@@ -51,48 +51,46 @@
             <div class="col-2 offset-5">
                 <hr>
             </div>
-            <div class="card-group">
-                <div class="row">
-                    <div class="card col-md-3">
-                        <img src="{!! asset('assets/img/minuman/es_jeruk.png') !!}" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">Es Jeruk</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Terjual 3894</small>
-                        </div>
-                    </div>
-                    <div class="card col-md-3">
-                        <img src="{!! asset('assets/img/makanan/somay.jpg') !!}" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">Somay</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Terjual 3894</small>
-                        </div>
-                    </div>
-                    <div class="card col-md-3">
-                        <img src="{!! asset('assets/img/minuman/es_teh.jpg') !!}" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">Es Teh</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Terjual 3894</small>
-                        </div>
-                    </div>
-                    <div class="card col-md-3">
-                        <img src="{!! asset('assets/img/makanan/nasi_goreng.jpg') !!}" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">Nasi Goreng</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Terjual 3894</small>
-                        </div>
-                    </div>
+        </div>
+        <div class="row">
+            <div class="card">
+                <img src="{{ url('assets/img/minuman/es_teh.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Rp 45.000</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Terjual 3245</small>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{{ url('assets/img/makanan/somay.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Rp 45.000</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Terjual 3245</small>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{{ url('assets/img/minuman/es_jeruk.png') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Rp 45.000</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Terjual 3245</small>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{{ url('assets/img/makanan/nasi_goreng.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Rp 45.000</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Terjual 3245</small>
                 </div>
             </div>
         </div>
@@ -113,68 +111,34 @@
         </div>
         <div class="col-md-9">
             <div class="row">
-                <div class="card-group">
-                    <div class="row">
-                        <div class="card col-md-3">
-                            <img src="{!! asset('assets/img/minuman/es_jeruk.png') !!}" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Terjual 3894</small>
-                            </div>
-                        </div>
-                        <div class="card col-md-3">
-                            <img src="{!! asset('assets/img/makanan/somay.jpg') !!}" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Terjual 3894</small>
-                            </div>
-                        </div>
-                        <div class="card col-md-3">
-                            <img src="{!! asset('assets/img/minuman/es_teh.jpg') !!}" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Terjual 3894</small>
-                            </div>
-                        </div>
-                        <div class="card col-md-3">
-                            <img src="{!! asset('assets/img/minuman/es_teh.jpg') !!}" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Terjual 3894</small>
-                            </div>
-                        </div>
-                        <div class="card col-md-3">
-                            <img src="{!! asset('assets/img/minuman/es_teh.jpg') !!}" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Terjual 3894</small>
-                            </div>
-                        </div>
-                        <div class="card col-md-3">
-                            <img src="{!! asset('assets/img/minuman/es_teh.jpg') !!}" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Terjual 3894</small>
-                            </div>
-                        </div>
+                <div class="card">
+                    <img src="{{ url('assets/img/minuman/es_teh.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Rp 45.000</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Terjual 3245</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{{ url('assets/img/makanan/somay.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Rp 45.000</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Terjual 3245</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{{ url('assets/img/minuman/es_jeruk.png') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Rp 45.000</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Terjual 3245</small>
                     </div>
                 </div>
             </div>
