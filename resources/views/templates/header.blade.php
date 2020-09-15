@@ -7,13 +7,13 @@
     <title>KantinKu | Beranda</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{!! asset('assets/css/style.css') !!}">
+    <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
 
     <!-- font-awesome -->
-    <link rel="stylesheet" type="text/css" href="{!! asset('assets/vendor/font-awesome-5/css/fontawesome-all.min.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/vendor/font-awesome-5/css/fontawesome-all.min.css') }}">
 
     <!-- CSS Bootstrap only -->
-    <link rel="stylesheet" href="{!! asset('assets/vendor/bootstrap/css/bootstrap.min.css') !!}">
+    <link href="{{ url('assets/vendor/bootstrap-4.1/bootstrap.min.css') }}" rel="stylesheet" media="all">
 
     <!-- JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

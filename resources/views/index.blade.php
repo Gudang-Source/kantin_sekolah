@@ -1,5 +1,5 @@
-@extends('templates.header')
-@extends('templates.navbar')
+@include('templates.header')
+@include('templates.navbar')
 
 <section id="carousel">
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -181,4 +181,4 @@
         </div>
     </div>
 </section>
-@extends('templates.footer')
+@include('templates.footer')
