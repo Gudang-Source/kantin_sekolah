@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Sep 2020 pada 20.29
+-- Waktu pembuatan: 15 Sep 2020 pada 19.24
 -- Versi server: 10.4.8-MariaDB
 -- Versi PHP: 7.3.11
 
@@ -74,10 +74,20 @@ CREATE TABLE `menus` (
   `id_menu` bigint(20) UNSIGNED NOT NULL,
   `nama_menu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `harga` int(11) NOT NULL,
-  `jenis_menu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kategori` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `stok` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal_ditambahkan` int(11) NOT NULL
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `menus`
+--
+
+INSERT INTO `menus` (`id_menu`, `nama_menu`, `harga`, `kategori`, `stok`, `created_at`, `updated_at`) VALUES
+(1, 'ok', 2900, 'Makanan', '47', '2020-09-15 03:03:09', '2020-09-15 03:03:09'),
+(4, 'test', 77677, 'Minuman', '24', '2020-09-15 04:07:55', '2020-09-15 04:07:55'),
+(7, 'bcvbcvb', 434, 'Minuman', '12', '2020-09-15 10:23:25', '2020-09-15 10:23:25');
 
 -- --------------------------------------------------------
 
@@ -246,7 +256,7 @@ ALTER TABLE `levels`
 -- AUTO_INCREMENT untuk tabel `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id_menu` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_menu` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
