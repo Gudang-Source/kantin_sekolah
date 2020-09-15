@@ -15,10 +15,6 @@ $(document).ready(function () {
 
     // Hapus menu
 	$('.tmbl-hapus-menu').on('click', function () {
-		var id = $(this).data('id');
-
-		$('.id').val(id);
-
 		$('#hapusMenu').modal('show');
 	});
 });

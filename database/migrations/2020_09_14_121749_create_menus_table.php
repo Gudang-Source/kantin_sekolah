@@ -19,7 +19,7 @@ class CreateMenusTable extends Migration
             $table->integer('harga');
             $table->string('jenis_menu');
             $table->string('stok');
-            $table->integer('tanggal_ditambahkan');
+            $table->timestamps();
         });
     }
 

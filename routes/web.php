@@ -23,4 +23,10 @@ Route::get('/auth', 'KantinController@auth')->name('kantin.auth');
 // Admin
 Route::get('/admin/index', 'AdminController@index')->name('admin.index');
 Route::get('/admin/menu', 'AdminController@menu')->name('admin.menu');
-Route::get('/admin/detail_menu', 'AdminController@detail_menu')->name('admin.detail_menu');
+
+//Menu
+Route::post('/admin/menu', 'AdminController@store')->name('menu.store');
+Route::get('/admin/menu/detail/{id_menu}', 'AdminController@show')->name('menu.show');
+Route::get('/admin/menu/edit/{id_menu}', 'AdminController@edit')->name('menu.edit');
+Route::patch('/admin/menu/edit/{id_menu}', 'AdminController@update')->name('menu.update');
+Route::get('/admin/menu/delete/{id_menu}', 'AdminController@destroy')->name('menu.destroy');
