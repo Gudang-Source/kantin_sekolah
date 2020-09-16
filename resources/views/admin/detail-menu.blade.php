@@ -60,11 +60,16 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Kategori Menu</label>
-                                <input type="text" class="form-control" value="{{ $menu->kategori }}" disabled>
+                                <input type="text" class="form-control" value="{{ $menu->kategori_menu }}" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="">Stok</label>
                                 <input type="number" class="form-control" value="{{ $menu->stok }}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Gambar</label>
+                                <br>
+                                <img src="{{ url('assets/img/menu/', $menu->gambar) }}" width="200px" alt="">
                             </div>
                         </form>
                     </div>

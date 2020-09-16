@@ -13,5 +13,6 @@ class Menu extends Model
         'harga',
         'kategori_menu',
         'stok',
+        'gambar',
     ];
 }

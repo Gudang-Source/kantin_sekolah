@@ -45,26 +45,37 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Edit Menu : {{ $menu->nama_menu }}</h5>
-                        <form action="{{ route('menu.update', $menu->id_menu) }}" method="post">
+                        <form action="{{ url('/admin/menu/edit', ['menu'=>$menu->id_menu]) }}" method="post" enctype="multipart/form-data">
                             @method('PATCH')
                             @csrf
                             <div class="form-group">
                                 <label for="">Nama Menu</label>
-                                <input type="text" class="form-control" value="{{ $menu->nama_menu }}">
+                                <input type="text" class="form-control" name="nama_menu" value="{{ $menu->nama_menu }}">
                             </div>
                             <div class="form-group">
                                 <label for="">Harga</label>
-                                <input type="number" class="form-control" value="{{ $menu->harga }}">
+                                <input type="number" class="form-control" name="harga" value="{{ $menu->harga }}">
                             </div>
                             <div class="form-group">
                                 <label for="">Kategori Menu</label>
-                                <input type="text" class="form-control" value="{{ $menu->kategori }}">
+                                <select name="kategori_menu" id="" class="form-control">
+                                    <option value="{{ $menu->kategori_menu }}">{{ $menu->kategori_menu }}</option>
+                                    <option value="Makanan">Makanan</option>
+                                    <option value="Minuman">Minuman</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="">Stok</label>
-                                <input type="number" class="form-control" value="{{ $menu->stok }}">
+                                <input type="number" class="form-control" name="stok" value="{{ $menu->stok }}">
                             </div>
-                            <button class="btn btn-primary">
+                            <div class="form-group">
+                                <label for="">Gambar</label>
+                                <br>
+                                <img src="{{ url('assets/img/menu/', $menu->gambar) }}" width="200px" alt="">
+                                <br>
+                                <input type="file" name="gambar" id="gambar" placeholder="" class="mt-3">
+                            </div>
+                            <button class="btn btn-primary" type="submit">
                                 <i class="fas fa-save"> Simpan</i>
                             </button>
                         </form>

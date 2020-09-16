@@ -41,6 +41,10 @@
                     <a href="{{ url('admin/menu') }}">
                         <i class="fas fa-trophy"></i>Menu</a>
                 </li>
+                <li>
+                    <a href="{{ url('admin/kategori') }}">
+                        <i class="fas fa-folder"></i>Kategori</a>
+                </li>
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fas fa-copy"></i>User

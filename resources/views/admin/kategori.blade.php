@@ -49,34 +49,28 @@
                         <div class="alert alert-danger">{{ session()->get('pesanDanger') }}</div>
                         @endif
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="tabelMenu" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="tabelKategori" width="100%" cellspacing="0">
                                 <thead style="font-weight: bold;">
                                     <tr class="text-center">
                                         <th>#</th>
-                                        <th>Nama Menu</th>
-                                        <th>Harga</th>
-                                        <th>Kategori</th>
-                                        <th>Stok</th>
+                                        <th>Nama Kategori</th>
                                         <th style="max-width: 140px;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        @forelse ($data_menu as $menu)
+                                        @forelse ($kategoris as $kategori)
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $menu->nama_menu }}</td>
-                                        <td>{{ $menu->harga }}</td>
-                                        <td>{{ $menu->kategori_menu }}</td>
-                                        <td>{{ $menu->stok }}</td>
+                                        <td>{{ $kategori->kategori_menu }}</td>
                                         <td>
                                             <!-- Button trigger modal -->
-                                            <a href="/admin/menu/detail/{{ $menu->id_menu }}" class="btn btn-success">
+                                            <a href="#" class="btn btn-success">
                                                 <i class="fas fa-eye"></i>
                                             </a>
-                                            <a href="/admin/menu/edit/{{ $menu->id_menu }}" class="btn btn-warning">
+                                            <a href="#" class="btn btn-warning">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <a href="/admin/menu/delete/{{ $menu->id_menu }}" class="btn btn-danger">
+                                            <a href="/admin/kategori/delete/{{ $kategori->id_kategori }}" class="btn btn-danger">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </td>
@@ -101,38 +95,17 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="judulTambah">Buat menu</h5>
+                <h5 class="modal-title" id="judulTambah">Tambah Kategori</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body ">
-                <form method="POST" action="{{ url('/admin/menu') }}" method="post" enctype="multipart/form-data">
-                {{ csrf_field() }}
+                <form method="POST" action="{{ url('/admin/menu') }}" method="post">
+                    @csrf
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Nama menu</label>
-                        <input type="text" class="form-control" name="nama_menu" id="exampleFormControlInput1" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Kategori Menu</label>
-                        <select name="kategori_menu" id="kategori" class="form-control">
-                            <option value="..." disabled>Pilih Kategori...</option>
-                            <option value="Makanan">Makanan</option>
-                            <option value="Minuman">Minuman</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Harga</label>
-                        <input type="number" class="form-control" name="harga" id="harga" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Jumlah</label>
-                        <input type="number" class="form-control" name="stok" id="stok" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Gambar</label>
-                        <br>
-                        <input type="file" name="gambar" id="gambar" placeholder="">
+                        <label for="exampleFormControlInput1">Nama kategori</label>
+                        <input type="text" class="form-control" name="kategori" id="exampleFormControlInput1" placeholder="">
                     </div>
                     <div class="form-group">
                         <div class="modal-footer">
