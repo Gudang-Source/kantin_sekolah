@@ -9,8 +9,4 @@ class KantinController extends Controller
     public function index() {
         return view('index');
     }
-
-    public function auth() {
-        return view('auth');
-    }
 }

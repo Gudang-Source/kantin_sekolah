@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer('id_user');
             $table->string('keterangan');
             $table->string('status_order');
-            $table->integer('tanggal_order');
+            $table->timestamps();
         });
     }
 

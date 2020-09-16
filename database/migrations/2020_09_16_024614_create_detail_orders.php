@@ -19,7 +19,7 @@ class CreateDetailOrders extends Migration
             $table->integer('id_menu');
             $table->string('keterangan');
             $table->string('status_detail_order');
-            $table->integer('tanggal_order');
+            $table->timestamps();
         });
     }
 

@@ -19,7 +19,7 @@ class CreateTransaksisTable extends Migration
             $table->integer('id_order');
             $table->integer('tanggal');
             $table->integer('total_bayar');
-            $table->integer('tanggal_transaksi');
+            $table->timestamps();
         });
     }
 

@@ -18,7 +18,12 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'KantinController@index')->name('kantin.index');
-Route::get('/auth', 'KantinController@auth')->name('kantin.auth');
+
+// Auth
+Route::get('/auth/login', 'auth\AuthController@index')->name('auth.login');
+Route::get('/auth/register', 'auth\AuthController@register')->name('auth.register');
+Route::post('/auth/login', 'auth\AuthController@prosesLogin')->name('login');
+Route::post('/auth/register', 'auth\AuthController@prosesRegister')->name('register');
 
 // Admin
 Route::get('/admin/index', 'AdminController@index')->name('admin.index');

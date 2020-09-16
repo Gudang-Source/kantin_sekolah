@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->integer('id_level');
-            $table->integer('tanggal_ditambahkan');
+            $table->timestamps();
         });
     }
 
