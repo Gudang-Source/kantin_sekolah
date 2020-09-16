@@ -6,9 +6,16 @@
         <div class="heading mb-4">
             <h4>Daftar</h4>
         </div>
-        <form action="">
+        <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            @if(session()->has('pesanSuccess'))
+            <div class="alert alert-success">{{ session()->get('pesanSuccess') }}</div>
+            @endif
+            @if(session()->has('pesanDanger'))
+            <div class="alert alert-danger">{{ session()->get('pesanDanger') }}</div>
+            @endif
             <div class="form-group">
-                <input type="text" class="form-control form-control-user" name="name" id="name" placeholder="Nama Lengkap" value="">
+                <input type="text" class="form-control form-control-user" name="nama" id="nama" placeholder="Nama Lengkap" value="">
                 <small class="text-danger text-left"></small>
             </div>
             <div class="form-group">
@@ -16,29 +23,16 @@
                 <small class="text-danger text-left"></small>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control form-control-user" name="password1" id="password1" placeholder="Kata Sandi" value="">
+                <input type="password" class="form-control form-control-user" name="password" id="password" placeholder="Kata Sandi" value="">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control form-control-user" name="password2" id="password2" placeholder="Ketik ulang kata sandi">
+                <input type="password" class="form-control form-control-user" name="password_confirmation" id="password_confirmation" placeholder="Ketik ulang kata sandi">
                 <small class="text-danger text-left"></small>
             </div>
             <div class="form-group">
-                <input type="number" class="form-control form-control-user" name="telp" id="telp" placeholder="No Telepon" value="">
-                <small class="text-danger text-left">></small>
+                <input type="file" class="form-control-file" name="gambar" id="gambar">
             </div>
-            <div class="form-group">
-                <input type="file" class="form-control-file" name="image" id="image">
-            </div>
-            <div class="form-level">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="level" id="radioAdmin" value="admin" ">
-                                <label class=" form-check-label" for="inlineRadio1">Admin</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="level" id="radioKaryawan" value="petugas">
-                    <label class="form-check-label" for="inlineRadio2">Karyawan</label>
-                </div>
-            </div>
+            <input type="hidden" class="form-control-file" name="id_level" id="id_level" value="1">
             <div class="row mb-3">
                 <div class="text-left mb-3">
                     <button type="submit" class="btn">Daftar</button>

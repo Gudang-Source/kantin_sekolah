@@ -11,7 +11,7 @@
                 <img src="{{ url('assets/img/profile/default.png') }}" alt="Admin" />
             </div>
             <h4 class="name">Admin</h4>
-            <a href="{{ url('auth') }}">Keluar</a>
+            <a href="{{ route('logout') }}">Keluar</a>
         </div>
         <nav class="navbar-sidebar2">
             <ul class="list-unstyled navbar__list">

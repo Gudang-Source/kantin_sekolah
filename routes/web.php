@@ -22,8 +22,9 @@ Route::get('/home', 'KantinController@index')->name('kantin.index');
 // Auth
 Route::get('/auth/login', 'auth\AuthController@index')->name('auth.login');
 Route::get('/auth/register', 'auth\AuthController@register')->name('auth.register');
-Route::post('/auth/login', 'auth\AuthController@prosesLogin')->name('login');
-Route::post('/auth/register', 'auth\AuthController@prosesRegister')->name('register');
+Route::post('/auth/proses-login', 'auth\AuthController@prosesLogin')->name('login');
+Route::post('/auth/proses-register', 'auth\AuthController@prosesRegister')->name('register');
+Route::get('/auth/logout', 'auth\AuthController@logout')->name('logout');
 
 // Admin
 Route::get('/admin/index', 'AdminController@index')->name('admin.index');

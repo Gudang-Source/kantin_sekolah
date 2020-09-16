@@ -22,7 +22,7 @@
                             <a class="nav-link" href="#">Kontak</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link masuk" href="{{ url('/auth') }}">Login</a>
+                            <a class="nav-link masuk" href="{{ url('/auth/login') }}">Login</a>
                         </li>
                     </ul>
                 </div>

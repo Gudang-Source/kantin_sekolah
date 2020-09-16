@@ -27,7 +27,7 @@
                             </div>
                             <div class="account-dropdown__body">
                                 <div class="account-dropdown__item">
-                                    <a href="{{ url('auth') }}">
+                                    <a href="{{ route('logout') }}">
                                         <i class="zmdi zmdi-run"></i>Keluar</a>
                                 </div>
                             </div>

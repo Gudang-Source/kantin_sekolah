@@ -7,9 +7,14 @@
             <h4>Masuk</h4>
         </div>
 
-
-
         <form action="{{ route('login') }}" method="post">
+            {{ csrf_field() }}
+            @if(session()->has('pesanSuccess'))
+            <div class="alert alert-success">{{ session()->get('pesanSuccess') }}</div>
+            @endif
+            @if(session()->has('pesanDanger'))
+            <div class="alert alert-danger">{{ session()->get('pesanDanger') }}</div>
+            @endif
             <div class="form-group">
                 <input type="text" class="form-control form-control-user" name="email" id="email" placeholder="Email" value="">
                 <small class="text-danger text-left"></small>
