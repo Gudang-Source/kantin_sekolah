@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Sep 2020 pada 19.24
+-- Waktu pembuatan: 16 Sep 2020 pada 15.27
 -- Versi server: 10.4.8-MariaDB
 -- Versi PHP: 7.3.11
 
@@ -25,16 +25,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detailorders`
+-- Struktur dari tabel `detail_orders`
 --
 
-CREATE TABLE `detailorders` (
+CREATE TABLE `detail_orders` (
   `id_detai_order` bigint(20) UNSIGNED NOT NULL,
   `id_order` int(11) NOT NULL,
   `id_menu` int(11) NOT NULL,
   `keterangan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_detail_order` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal_order` int(11) NOT NULL
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -55,13 +56,27 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `kategoris`
+--
+
+CREATE TABLE `kategoris` (
+  `id_kategori` bigint(20) UNSIGNED NOT NULL,
+  `kategori_menu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `levels`
 --
 
 CREATE TABLE `levels` (
   `id_level` bigint(20) UNSIGNED NOT NULL,
   `nama_level` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal_ditambahkan` int(11) NOT NULL
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -73,21 +88,13 @@ CREATE TABLE `levels` (
 CREATE TABLE `menus` (
   `id_menu` bigint(20) UNSIGNED NOT NULL,
   `nama_menu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kategori_menu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `harga` int(11) NOT NULL,
-  `kategori` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `stok` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gambar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `menus`
---
-
-INSERT INTO `menus` (`id_menu`, `nama_menu`, `harga`, `kategori`, `stok`, `created_at`, `updated_at`) VALUES
-(1, 'ok', 2900, 'Makanan', '47', '2020-09-15 03:03:09', '2020-09-15 03:03:09'),
-(4, 'test', 77677, 'Minuman', '24', '2020-09-15 04:07:55', '2020-09-15 04:07:55'),
-(7, 'bcvbcvb', 434, 'Minuman', '12', '2020-09-15 10:23:25', '2020-09-15 10:23:25');
 
 -- --------------------------------------------------------
 
@@ -112,8 +119,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2020_09_14_121331_create_transaksis_table', 1),
 (5, '2020_09_14_121506_create_levels_table', 1),
 (6, '2020_09_14_121529_create_orders_table', 1),
-(7, '2020_09_14_121554_create_detailorders_table', 1),
-(8, '2020_09_14_121749_create_menus_table', 1);
+(7, '2020_09_14_121749_create_menus_table', 1),
+(8, '2020_09_16_024134_create_kategoris', 1),
+(9, '2020_09_16_024614_create_detail_orders', 1);
 
 -- --------------------------------------------------------
 
@@ -126,7 +134,8 @@ CREATE TABLE `orders` (
   `id_user` int(11) NOT NULL,
   `keterangan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_order` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal_order` int(11) NOT NULL
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -153,7 +162,8 @@ CREATE TABLE `transaksis` (
   `id_order` int(11) NOT NULL,
   `tanggal` int(11) NOT NULL,
   `total_bayar` int(11) NOT NULL,
-  `tanggal_transaksi` int(11) NOT NULL
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -168,17 +178,27 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_level` int(11) NOT NULL,
-  `tanggal_ditambahkan` int(11) NOT NULL
+  `gambar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `users`
+--
+
+INSERT INTO `users` (`id_user`, `nama`, `email`, `password`, `id_level`, `gambar`, `created_at`, `updated_at`) VALUES
+(2, 'Jack', 'jack01@gmail.com', '$2y$10$Hl/pJobYc69.yjAEv8ILfOi4qIypWJ8fv/aic1JctHxonYfl2bM2q', 1, '20200916122725.jpg', '2020-09-16 05:27:25', '2020-09-16 05:27:25'),
+(3, 'Oden', 'oden01@gmail.com', '$2y$10$cjQNDrUkoP6bTedXRO2Qf.rWoE175QkzBZTotLDWN45WWgSdmz07K', 2, '20200916130059.jpg', '2020-09-16 06:00:59', '2020-09-16 06:00:59');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `detailorders`
+-- Indeks untuk tabel `detail_orders`
 --
-ALTER TABLE `detailorders`
+ALTER TABLE `detail_orders`
   ADD PRIMARY KEY (`id_detai_order`);
 
 --
@@ -186,6 +206,12 @@ ALTER TABLE `detailorders`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `kategoris`
+--
+ALTER TABLE `kategoris`
+  ADD PRIMARY KEY (`id_kategori`);
 
 --
 -- Indeks untuk tabel `levels`
@@ -235,9 +261,9 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT untuk tabel `detailorders`
+-- AUTO_INCREMENT untuk tabel `detail_orders`
 --
-ALTER TABLE `detailorders`
+ALTER TABLE `detail_orders`
   MODIFY `id_detai_order` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -245,6 +271,12 @@ ALTER TABLE `detailorders`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `kategoris`
+--
+ALTER TABLE `kategoris`
+  MODIFY `id_kategori` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `levels`
@@ -256,13 +288,13 @@ ALTER TABLE `levels`
 -- AUTO_INCREMENT untuk tabel `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id_menu` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_menu` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `orders`
@@ -280,7 +312,7 @@ ALTER TABLE `transaksis`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

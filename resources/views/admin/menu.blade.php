@@ -19,7 +19,7 @@
                             </ul>
                         </div>
                         <button class="au-btn au-btn-icon au-btn--green" data-toggle="modal" data-target="#mediumModal">
-                            <i class="zmdi zmdi-plus"></i>Tambah Masyarakat</button>
+                            <i class="zmdi zmdi-plus"></i>Tambah Menu</button>
                     </div>
                 </div>
             </div>

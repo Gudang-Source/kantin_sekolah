@@ -87,6 +87,8 @@ class AdminController extends Controller
     public function destroy($menu)
     {
         $m = Menu::find($menu);
+        $image_path = public_path() . '/assets/img/menu/' . $m->gambar;
+        unlink($image_path);
         $menu = $m->delete();
         return redirect()->route('admin.menu')->with('pesanDanger', "Data {$m['nama_menu']} berhasil di Hapus!");
     }

@@ -54,7 +54,7 @@
         </div>
         <div class="row">
             <div class="card">
-                <img src="{{ url('assets/img/minuman/es_teh.jpg') }}" class="card-img-top" alt="...">
+                <img src="{{ url('assets/img/hot/es_teh.jpg') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Rp 45.000</p>
@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="{{ url('assets/img/makanan/somay.jpg') }}" class="card-img-top" alt="...">
+                <img src="{{ url('assets/img/hot/somay.jpg') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Rp 45.000</p>
@@ -74,7 +74,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="{{ url('assets/img/minuman/es_jeruk.png') }}" class="card-img-top" alt="...">
+                <img src="{{ url('assets/img/hot/es_jeruk.png') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Rp 45.000</p>
@@ -84,7 +84,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="{{ url('assets/img/makanan/nasi_goreng.jpg') }}" class="card-img-top" alt="...">
+                <img src="{{ url('assets/img/hot/nasi_goreng.jpg') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Rp 45.000</p>
@@ -111,36 +111,20 @@
         </div>
         <div class="col-md-9">
             <div class="row">
-                <div class="card">
-                    <img src="{{ url('assets/img/minuman/es_teh.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Rp 45.000</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Terjual 3245</small>
-                    </div>
+            @forelse ($data_menu as $menu)
+            <div class="card">
+                <img src="{{ url('assets/img/menu/' . $menu->gambar) }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $menu->nama_menu }}</h5>
+                    <p class="card-text">Rp {{ $menu->harga }}</p>
                 </div>
-                <div class="card">
-                    <img src="{{ url('assets/img/makanan/somay.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Rp 45.000</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Terjual 3245</small>
-                    </div>
+                <div class="card-footer">
+                    <small class="text-muted">Terisa {{ $menu->stok }}</small>
                 </div>
-                <div class="card">
-                    <img src="{{ url('assets/img/minuman/es_jeruk.png') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Rp 45.000</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Terjual 3245</small>
-                    </div>
-                </div>
+            </div>
+            @empty
+
+            @endforelse
             </div>
         </div>
     </div>

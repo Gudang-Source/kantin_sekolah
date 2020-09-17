@@ -16,8 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//Homepage
 Route::get('/home', 'KantinController@index')->name('kantin.index');
+Route::get('/keranjang', 'KantinController@keranjang')->name('kantin.keranjang');
 
 // Auth
 Route::get('/auth/login', 'auth\AuthController@index')->name('auth.login');

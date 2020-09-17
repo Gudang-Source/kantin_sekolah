@@ -12,17 +12,17 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Beranda <span class="sr-only">(current)</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('kantin.index') }}">Beranda <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Keranjang</a>
+                            <a class="nav-link" href="{{ route('kantin.keranjang') }}">Keranjang</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Kontak</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link masuk" href="{{ url('/auth/login') }}">Login</a>
+                            <a class="nav-link masuk" href="{{ route('auth.login') }}">Login</a>
                         </li>
                     </ul>
                 </div>
