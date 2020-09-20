@@ -76,7 +76,7 @@ class OrderController extends Controller
 
     public function keranjang() {
         $order = Order::where('id_user', Session::get('id_user'))->first();
-        $detail_orders =[];
+        $detail_orders = [];
 
         if(!empty($order)) {
             $detail_orders = Detail_order::where('id_order', $order->id_order)->get();

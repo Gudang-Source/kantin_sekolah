@@ -15,4 +15,14 @@ class Detail_order extends Model
         'sub_total',
         'status_detail_order',
     ];
+
+    public function menu()
+    {
+        return $this->belongsTo('App\Menu', 'id_menu', 'id_menu');
+    }
+
+    public function order()
+    {
+        return $this->belongsTo('App\Order', 'id_order', 'id_order');
+    }
 }

@@ -15,4 +15,9 @@ class Menu extends Model
         'stok',
         'gambar',
     ];
+
+    public function detail_order()
+    {
+        return $this->hasMany('App\Detail_order', 'id_menu', 'id_menu');
+    }
 }
