@@ -8,15 +8,15 @@
     <div class="menu-sidebar2__content js-scrollbar1">
         <div class="account2">
             <div class="image img-cir img-120">
-                <img src="{{ url('assets/img/profile/default.png') }}" alt="Admin" />
+                <img src="{{ url('assets/img/user/') . Session::get('gambar') }}" alt="{{ Session::get('gambar') }}" />
             </div>
-            <h4 class="name">Admin</h4>
+            <h4 class="name">{{ Session::get('nama') }}</h4>
             <a href="{{ route('logout') }}">Keluar</a>
         </div>
         <nav class="navbar-sidebar2">
             <ul class="list-unstyled navbar__list">
                 <li>
-                    <a href="{{ url('admin/index') }}">
+                    <a href="{{ route('admin') }}">
                         <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                 </li>
                 <li class="has-sub">
@@ -38,11 +38,11 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{{ url('admin/menu') }}">
+                    <a href="{{ route('admin.menu') }}">
                         <i class="fas fa-trophy"></i>Menu</a>
                 </li>
                 <li>
-                    <a href="{{ url('admin/kategori') }}">
+                    <a href="#">
                         <i class="fas fa-folder"></i>Kategori</a>
                 </li>
                 <li class="has-sub">

@@ -1,17 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Menu;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use App\Menu;
+use App\Detail_order;
+use App\Order;
 
 class KantinController extends Controller
 {
     public function index() {
         $allMenu = Menu::all();
-        return view('index', ['data_menu' => $allMenu]);
+        return view('kantin/index', ['data_menu' => $allMenu]);
     }
 
     public function keranjang() {
-        return view('keranjang');
+        $order = Order::where('id_user', Session::get('id_user'))->first();
+        $detail_orders =[];
+
+        if(!empty($order)) {
+            $detail_orders = Detail_order::where('id_order', $order->id_order)->get();
+        }
+        
+        return view('kantin/keranjang', compact('order', 'detail_orders'));
     }
 }

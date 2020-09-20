@@ -1,4 +1,13 @@
 $(document).ready(function () {
+	$('.tmbl-jumlah').on('click', function() {
+		var nama = $(this).data('nama');
+		var harga = $(this).data('harga');
+
+		$('#nama').val(nama);
+		$('#harga').val(harga);		
+
+		$('#jumlahPesan').modal('show');
+	})
 
 	$('#tabelMenu').DataTable();
     // Admin

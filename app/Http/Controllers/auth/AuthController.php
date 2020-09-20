@@ -5,7 +5,8 @@ namespace App\Http\Controllers\auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -21,13 +22,23 @@ class AuthController extends Controller
 
     public function prosesLogin(Request $request)
     {
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return view('admin/dashboard');
-        }
-        else {
+        $email = $request->email;
+        $password = $request->password;
+        $data = User::where('email', $email)->first();
+        if ($data && Hash::Check($password, $data->password)) {
+            Session::put('id_user', $data->id_user);
+            Session::put('nama', $data->nama);
+            Session::put('email', $data->email);
+            Session::put('id_level', $data->id_level);
+            Session::put('gambar', $data->gambar);
+            if ($data->id_level == "1") {
+                return redirect()->route('admin');
+            } else if ($data->id_level == "2") {
+                return redirect()->route('kantin.index');
+            }
+        } else {
             return redirect()->back()->with('pesanDanger', "Email atau Password Anda Salah!");
         }
-        
     }
 
     public function prosesRegister(Request $request)
@@ -56,8 +67,9 @@ class AuthController extends Controller
         return redirect()->route('auth.login')->with('pesanSuccess', "Selamat! Akun {$validateData['nama']} berhasil di Dibuat!");
     }
 
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         $request->session()->flush();
-        return redirect('/home');
+        return redirect()->route('auth.login');
     }
 }

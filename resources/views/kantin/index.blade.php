@@ -111,20 +111,21 @@
         </div>
         <div class="col-md-9">
             <div class="row">
-            @forelse ($data_menu as $menu)
-            <div class="card">
-                <img src="{{ url('assets/img/menu/' . $menu->gambar) }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $menu->nama_menu }}</h5>
-                    <p class="card-text">Rp {{ $menu->harga }}</p>
+                @forelse ($data_menu as $menu)
+                <div class="card">
+                    <img src="{{ url('assets/img/menu/' . $menu->gambar) }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $menu->nama_menu }}</h5>
+                        <p class="card-text">Rp {{ $menu->harga }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Terisa {{ $menu->stok }}</small>
+                        <a href="/order/{{ $menu->id_menu }}" class="btn btn-primary" style="float: right;">Pesan</a>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted">Terisa {{ $menu->stok }}</small>
-                </div>
-            </div>
-            @empty
+                @empty
 
-            @endforelse
+                @endforelse
             </div>
         </div>
     </div>

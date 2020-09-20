@@ -14,10 +14,11 @@ class CreateDetailOrders extends Migration
     public function up()
     {
         Schema::create('detail_orders', function (Blueprint $table) {
-            $table->id('id_detai_order');
+            $table->id('id_detail_order');
             $table->integer('id_order');
             $table->integer('id_menu');
-            $table->string('keterangan');
+            $table->integer('jumlah');
+            $table->integer('sub_total');
             $table->string('status_detail_order');
             $table->timestamps();
         });

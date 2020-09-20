@@ -32,7 +32,7 @@
             <div class="form-group">
                 <input type="file" class="form-control-file" name="gambar" id="gambar">
             </div>
-            <input type="hidden" class="form-control-file" name="id_level" id="id_level" value="1">
+            <input type="hidden" class="form-control-file" name="id_level" id="id_level" value="2">
             <div class="row mb-3">
                 <div class="text-left mb-3">
                     <button type="submit" class="btn">Daftar</button>
