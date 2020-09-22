@@ -2,13 +2,13 @@
 <aside class="menu-sidebar2">
     <div class="logo">
         <a href="#">
-            <p>KantinKu</p>
+            <p style="color:white; letter-spacing:4px; font-size:25px;">KantinKu</p>
         </a>
     </div>
     <div class="menu-sidebar2__content js-scrollbar1">
         <div class="account2">
-            <div class="image img-cir img-120">
-                <img src="{{ url('assets/img/user/') . Session::get('gambar') }}" alt="{{ Session::get('gambar') }}" />
+            <div>
+                <img src="{{ url('assets/img/user') }}/{{ Session::get('gambar') }}" alt="{{ Session::get('gambar') }}" style="border-radius: 100%; width:150px; height:150px" />
             </div>
             <h4 class="name">{{ Session::get('nama') }}</h4>
             <a href="{{ route('logout') }}">Keluar</a>

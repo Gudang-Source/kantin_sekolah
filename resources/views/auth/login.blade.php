@@ -15,6 +15,9 @@
             @if(session()->has('pesanDanger'))
             <div class="alert alert-danger">{{ session()->get('pesanDanger') }}</div>
             @endif
+            @if(session()->has('pesanLogin'))
+            <div class="alert alert-danger">{{ session()->get('pesanLogin') }}</div>
+            @endif
             <div class="form-group">
                 <input type="text" class="form-control form-control-user" name="email" id="email" placeholder="Email" value="">
                 <small class="text-danger text-left"></small>

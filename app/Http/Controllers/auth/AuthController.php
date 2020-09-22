@@ -31,6 +31,8 @@ class AuthController extends Controller
             Session::put('email', $data->email);
             Session::put('id_level', $data->id_level);
             Session::put('gambar', $data->gambar);
+
+            session(['berhasil_login' => true]);
             if ($data->id_level == "1") {
                 return redirect()->route('admin');
             } else if ($data->id_level == "2") {
@@ -70,6 +72,6 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         $request->session()->flush();
-        return redirect()->route('auth.login');
+        return redirect()->route('auth.login')->with('pesanDanger', "Anda telah keluar!");
     }
 }
