@@ -110,6 +110,10 @@
             </div>
         </div>
         <div class="col-md-9">
+            <div class="form-group">
+                <input type="text" name="country" id="country" placeholder="Masukkan Nama Menu" class="form-control" style="width:450px;">
+                <button class="btn btn-primary mt-3">Cari Menu</button>
+            </div>
             <div class="row">
                 @forelse ($data_menu as $menu)
                 <div class="card">
@@ -127,6 +131,7 @@
 
                 @endforelse
             </div>
+            {{ $data_menu->links() }}
         </div>
     </div>
 </section>

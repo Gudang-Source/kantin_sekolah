@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Http\Request;
 use App\Menu;
 use App\Detail_order;
 use App\Order;
@@ -10,8 +9,8 @@ use App\Order;
 class KantinController extends Controller
 {
     public function index() {
-        $allMenu = Menu::all();
-        return view('kantin/index', ['data_menu' => $allMenu]);
+        $menu = Menu::paginate(9);
+        return view('kantin/index', ['data_menu' => $menu]);
     }
 
     public function keranjang() {
