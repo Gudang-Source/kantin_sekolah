@@ -1,32 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Menu;
 use App\User;
-use App\Transaksi;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class MenuController extends Controller
 {
     public function index()
     {
-        $menu = Menu::count();
-        $user = User::count();
-        $transaksi = Transaksi::count();
-
-        return view('admin/dashboard', compact('menu', 'user', 'transaksi'));
-    }
-
-    public function menu()
-    {
         $allMenu = Menu::all();
         return view('admin/menu', ['data_menu' => $allMenu]);
-    }
-
-    public function create()
-    {
-        //
     }
 
     public function store(Request $request)

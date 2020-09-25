@@ -34,9 +34,9 @@ class AuthController extends Controller
 
             session(['berhasil_login' => true]);
             if ($data->id_level == "1") {
-                return redirect()->route('admin');
+                return redirect()->route('admin.index');
             } else if ($data->id_level == "2") {
-                return redirect()->route('kantin.index');
+                return redirect()->route('kasir.index');
             }
         } else {
             return redirect()->back()->with('pesanDanger', "Email atau Password Anda Salah!");

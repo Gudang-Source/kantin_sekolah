@@ -13,13 +13,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('kantin.index') }}">Beranda <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('kasir.index') }}">Beranda <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('kantin.keranjang') }}">Keranjang</a>
+                            <a class="nav-link" href="{{ route('kasir.pesan') }}">Pesan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Kontak</a>
+                            <a class="nav-link" href="{{ route('kasir.keranjang') }}">Keranjang</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link masuk" href="{{ route('logout') }}">Keluar</a>

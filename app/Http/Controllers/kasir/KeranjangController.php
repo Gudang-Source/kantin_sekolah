@@ -1,19 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\kasir;
+
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use App\Menu;
 use App\Detail_order;
 use App\Order;
 
-class KantinController extends Controller
+class KeranjangController extends Controller
 {
     public function index() {
-        $menu = Menu::paginate(9);
-        return view('kantin/index', ['data_menu' => $menu]);
-    }
-
-    public function keranjang() {
         $order = Order::where('id_user', Session::get('id_user'))->first();
         $detail_orders =[];
 
@@ -21,6 +17,6 @@ class KantinController extends Controller
             $detail_orders = Detail_order::where('id_order', $order->id_order)->get();
         }
         
-        return view('kantin/keranjang', compact('order', 'detail_orders'));
+        return view('kasir/keranjang', compact('order', 'detail_orders'));
     }
 }

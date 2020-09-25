@@ -134,10 +134,26 @@ body {
     color: #f39c12;
 }
 
+#hot-sale .btn-pesan {
+    margin: auto;
+    background-color: #f39c12;
+    color: #fff;
+}
+
+#hot-sale .btn-pesan:hover {
+    background-color: #d68b12;
+}
+
 /* ////////////////////////////////////// */
 
 #menu {
-    padding-top: 80px;
+    padding-top: 40px;
+}
+
+#menu h1 {
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    color: #f39c12;
 }
 
 #menu .filter {

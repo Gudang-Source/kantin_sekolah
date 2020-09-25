@@ -26,21 +26,19 @@ Route::get('/auth/logout', 'auth\AuthController@logout')->name('logout');
 
 Route::group(['middleware' => 'CekLoginMiddleware'], function() {
     // Admin
-    Route::get('/admin/index', function(){return view('kantin/index');});
-    Route::get('/admin', 'AdminController@index')->name('admin');
-    Route::get('/admin/menu', 'AdminController@menu')->name('admin.menu');
-    
-    //Menu
-    Route::post('/admin/menu', 'AdminController@store')->name('menu.store');
-    Route::get('/admin/menu/detail/{menu}', 'AdminController@show')->name('menu.show');
-    Route::get('/admin/menu/edit/{menu}', 'AdminController@edit')->name('menu.edit');
-    Route::patch('/admin/menu/edit/{menu}', 'AdminController@update')->name('menu.update');
-    Route::get('/admin/menu/delete/{menu}', 'AdminController@destroy')->name('menu.destroy');
+    Route::get('/admin', 'admin\DashboardController@index')->name('admin.index');
+    Route::get('/admin/menu', 'admin\MenuController@index')->name('admin.menu');
+    Route::post('/admin/menu', 'admin\MenuController@store')->name('menu.store');
+    Route::get('/admin/menu/detail/{menu}', 'admin\MenuController@show')->name('menu.show');
+    Route::get('/admin/menu/edit/{menu}', 'admin\MenuController@edit')->name('menu.edit');
+    Route::patch('/admin/menu/edit/{menu}', 'admin\MenuController@update')->name('menu.update');
+    Route::get('/admin/menu/delete/{menu}', 'admin\MenuController@destroy')->name('menu.destroy');
     
     //Kasir
-    Route::get('/home', 'KantinController@index')->name('kantin.index');
-    Route::get('/keranjang', 'OrderController@keranjang')->name('kantin.keranjang');
-    Route::get('order/{id_menu}', 'OrderController@order');
-    Route::post('order/{id_menu}', 'OrderController@prosesOrder')->name('proses.order');
+    Route::get('/home', 'kasir\BerandaController@index')->name('kasir.index');
+    Route::get('/pesan', 'kasir\OrderController@index')->name('kasir.pesan');
+    Route::get('/keranjang', 'kasir\KeranjangController@index')->name('kasir.keranjang');
+    Route::get('order/{id_menu}', 'kasir\OrderController@order');
+    Route::post('order/{id_menu}', 'kasir\OrderController@prosesOrder')->name('proses.order');
 });
 

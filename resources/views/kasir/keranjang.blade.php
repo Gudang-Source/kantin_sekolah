@@ -1,5 +1,5 @@
-@include('templates.header')
-@include('templates.navbar')
+@include('templates.kasir.header')
+@include('templates.kasir.navbar')
 
 <!-- Content -->
 <section>
@@ -69,4 +69,4 @@
 </section>
 <!-- End Of Content -->
 
-@include('templates.footer')
+@include('templates.kasir.footer')

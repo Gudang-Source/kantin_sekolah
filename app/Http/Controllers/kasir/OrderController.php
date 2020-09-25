@@ -1,20 +1,27 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\kasir;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Detail_order;
 use App\Menu;
 use App\Order;
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    public function index()
+    {
+        $menu = Menu::paginate(6);
+        return view('kasir/pesan', ['data_menu' => $menu]);
+    }
+
     public function order($id_menu)
     {
         $m = Menu::find($id_menu);
-        return view('kantin/order', ['menu' => $m]);
+        return view('kasir/order', ['menu' => $m]);
     }
 
     public function prosesOrder(Request $request, $id_menu)
@@ -24,7 +31,7 @@ class OrderController extends Controller
 
         //Jika jumlah pesan melebihi Stok
         if ($request->jumlah_pesan > $menu->stok) {
-            return redirect('order/' . $id_menu)->with('pesanDanger', "Mohon maaf, jumlah pesanan anda melebihi stok yang tersedia.");
+            return redirect('jumlah_pesan/' . $id_menu)->with('pesanDanger', "Mohon maaf, jumlah pesanan anda melebihi stok yang tersedia.");
         }
 
         //Cek order
@@ -43,12 +50,12 @@ class OrderController extends Controller
 
         //Get id_order
         $order_baru = Order::where('id_user', Session::get('id_user'))->first();
-        
+
         //Cek Detail
         $detail_order = Detail_order::where('id_menu', $menu->id_menu)->where('id_order', $order_baru->id_order)->first();
-        
+
         //Simpan ke tabel Detail_Orders
-        if(empty($detail_order)) {
+        if (empty($detail_order)) {
             $detail_order = new Detail_order;
             $detail_order->id_order = $order_baru->id_order;
             $detail_order->id_menu = $menu->id_menu;
@@ -56,8 +63,7 @@ class OrderController extends Controller
             $detail_order->sub_total = $menu->harga * $request->jumlah_pesan;
             $detail_order->status_detail_order = "Belum Bayar";
             $detail_order->save();
-        }
-        else {
+        } else {
             $detail_order->jumlah = $detail_order->jumlah + $request->jumlah_pesan;
 
             //Sub Total
@@ -74,14 +80,15 @@ class OrderController extends Controller
         return redirect('/home');
     }
 
-    public function keranjang() {
+    public function keranjang()
+    {
         $order = Order::where('id_user', Session::get('id_user'))->first();
         $detail_orders = [];
 
-        if(!empty($order)) {
+        if (!empty($order)) {
             $detail_orders = Detail_order::where('id_order', $order->id_order)->get();
         }
-        
-        return view('kantin/keranjang', compact('order', 'detail_orders'));
+
+        return view('kasir/keranjang', compact('order', 'detail_orders'));
     }
 }
