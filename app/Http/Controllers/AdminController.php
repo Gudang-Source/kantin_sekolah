@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Menu;
+use App\User;
+use App\Transaksi;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin/dashboard');
+        $menu = Menu::count();
+        $user = User::count();
+        $transaksi = Transaksi::count();
+
+        return view('admin/dashboard', compact('menu', 'user', 'transaksi'));
     }
 
     public function menu()
