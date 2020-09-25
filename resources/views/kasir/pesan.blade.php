@@ -35,8 +35,13 @@
                         <p class="card-text">Rp {{ $menu->harga }}</p>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Terisa {{ $menu->stok }}</small>
+                        <small class="text-muted">Tersisa {{ $menu->stok }}</small>
+                        @if($menu->stok < 1)
+                        <button class="btn btn-danger" style="float: right;">Habis</button>
+                        @endif
+                        @if($menu->stok > 1)
                         <a href="/order/{{ $menu->id_menu }}" class="btn btn-primary" style="float: right;">Pesan</a>
+                        @endif
                     </div>
                 </div>
                 @empty
