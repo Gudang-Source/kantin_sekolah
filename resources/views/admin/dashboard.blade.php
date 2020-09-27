@@ -1,6 +1,6 @@
-@include('templates.admin.header')
-@include('templates.admin.sidebar')
-@include('templates.admin.topbar')
+@include('templates.admin_kasir.header')
+@include('templates.admin_kasir.sidebar')
+@include('templates.admin_kasir.topbar')
 
 <!-- BREADCRUMB-->
 <section class="au-breadcrumb m-t-75">
@@ -10,10 +10,10 @@
                 <div class="col-md-12">
                     <div class="au-breadcrumb-content">
                         <div class="au-breadcrumb-left">
-                            <span class="au-breadcrumb-span">You are here:</span>
+                            <span class="au-breadcrumb-span">Kamu sedang berada di :</span>
                             <ul class="list-unstyled list-inline au-breadcrumb__list">
                                 <li class="list-inline-item active">
-                                    <a href="#">Home</a>
+                                    <a href="#">Admin</a>
                                 </li>
                                 <li class="list-inline-item seprate">
                                     <span>/</span>
@@ -21,8 +21,6 @@
                                 <li class="list-inline-item">Dashboard</li>
                             </ul>
                         </div>
-                        <button class="au-btn au-btn-icon au-btn--green">
-                            <i class="zmdi zmdi-plus"></i>add item</button>
                     </div>
                 </div>
             </div>
@@ -65,7 +63,7 @@
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="statistic__item">
-                        <h2 class="number">Rp. {{ $user }}</h2>
+                        <h2 class="number">Rp. {{ $order }}</h2>
                         <span class="desc">Total Pendapatan</span>
                         <div class="icon">
                             <i class="zmdi zmdi-money"></i>
@@ -78,4 +76,4 @@
 </section>
 <!-- END STATISTIC-->
 
-@include('templates.admin.footer')
+@include('templates.admin_kasir.footer')

@@ -17,12 +17,19 @@
                         <div class="setting-menu js-right-sidebar d-none d-lg-block">
                             <div class="account-dropdown__body">
                                 <div class="account-dropdown__item">
-                                    <a href="#">
+                                    <?php
+                                    use Illuminate\Support\Facades\Session;
+                                    $id_level = Session::get('id_level');
+                                
+                                    if($id_level == "1") {
+                                        $profile = "/admin/profile";
+                                    }
+                                    else if($id_level == "3") {
+                                        $profile = "/kasir/profile";
+                                    }
+                                    ?>
+                                    <a href="{{ $profile }}">
                                         <i class="zmdi zmdi-account"></i>Akun Saya</a>
-                                </div>
-                                <div class="account-dropdown__item">
-                                    <a href="#">
-                                        <i class="zmdi zmdi-settings"></i>Pengaturan</a>
                                 </div>
                             </div>
                             <div class="account-dropdown__body">

@@ -1,11 +1,15 @@
-@include('templates.header')
-@include('templates.navbar')
+@include('templates.waiter.header')
+@include('templates.waiter.navbar')
 
 <!-- Content -->
 <section>
     <div class="container-fluid mt-4">
         @if(session()->has('pesanDanger'))
-        <div class="alert alert-danger">{{ session()->get('pesanDanger') }}</div>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">{{ Session::get('pesanDanger') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         @endif
         <div class="row">
             <div class="col-md-6">
@@ -30,7 +34,7 @@
                         <td>
                             <form action="{{ url('order') }}/{{ $menu->id_menu }}" method="POST">
                                 @csrf
-                                <input type="text" class="form-control" name="jumlah_pesan" style="width: 20%;">
+                                <input type="text" class="form-control" name="jumlah_order" style="width: 20%;">
                                 <button type="submit" class="btn btn-primary mt-3">Pesan</button>
                             </form>
                         </td>
@@ -42,4 +46,4 @@
 </section>
 <!-- End Of Content -->
 
-@include('templates.footer')
+@include('templates.waiter.footer')

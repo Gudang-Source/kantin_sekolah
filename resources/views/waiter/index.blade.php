@@ -1,5 +1,5 @@
-@include('templates.kasir.header')
-@include('templates.kasir.navbar')
+@include('templates.waiter.header')
+@include('templates.waiter.navbar')
 
 <section id="carousel">
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -95,9 +95,9 @@
             </div>
         </div>
         <div class="row mb-4">
-            <a href="{{ route('kasir.pesan') }}" class="btn btn-pesan">Pesan Disini</a>
+            <a href="{{ route('waiter.order') }}" class="btn btn-pesan">Pesan Disini</a>
         </div>
     </div>
 </section>
 
-@include('templates.kasir.footer')
+@include('templates.waiter.footer')

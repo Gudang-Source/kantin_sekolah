@@ -29,6 +29,7 @@ class AuthController extends Controller
             Session::put('id_user', $data->id_user);
             Session::put('nama', $data->nama);
             Session::put('email', $data->email);
+            Session::put('password', $data->password);
             Session::put('id_level', $data->id_level);
             Session::put('gambar', $data->gambar);
 
@@ -36,7 +37,9 @@ class AuthController extends Controller
             if ($data->id_level == "1") {
                 return redirect()->route('admin.index');
             } else if ($data->id_level == "2") {
-                return redirect()->route('kasir.index');
+                return redirect()->route('waiter.index');
+            } else if ($data->id_level == "3") {
+                return redirect()->route('kasir.order');
             }
         } else {
             return redirect()->back()->with('pesanDanger', "Email atau Password Anda Salah!");

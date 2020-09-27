@@ -1,12 +1,22 @@
 $(document).ready(function () {
-	$('.tmbl-jumlah').on('click', function() {
-		var nama = $(this).data('nama');
-		var harga = $(this).data('harga');
+	// $('.tmbl-jumlah').on('click', function() {
+	// 	var nama = $(this).data('nama');
+	// 	var harga = $(this).data('harga');
 
-		$('#nama').val(nama);
-		$('#harga').val(harga);		
+	// 	$('#nama').val(nama);
+	// 	$('#harga').val(harga);		
 
-		$('#jumlahPesan').modal('show');
+	// 	$('#jumlahPesan').modal('show');
+	// })
+
+	$('.btn-jumlah').on('click', function() {
+		var nama_menu = $(this).data('nama');
+		var jumlah = $(this).data('jumlah');
+
+		$('#nama_menu').val(nama_menu);
+		$('#jumlah').val(jumlah);		
+
+		$('#ubahJumlah').modal('show');
 	})
 
 	$('#tabelMenu').DataTable();

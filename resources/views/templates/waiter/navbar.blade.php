@@ -13,13 +13,27 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('kasir.index') }}">Beranda <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('waiter.index') }}">Beranda <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('kasir.pesan') }}">Pesan</a>
+                            <a class="nav-link" href="{{ route('waiter.order') }}">Order</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('kasir.keranjang') }}">Keranjang</a>
+                            <?php
+
+                            use Illuminate\Support\Facades\Session;
+
+                            $order = \App\Order::where('id_user', Session::get('id_user'))->where('status_order', "0")->first();
+                            if (empty($order)) {
+                                $notif = "";
+                            }
+                            else {
+                                $notif = \App\Detail_order::where('id_order', $order->id_order)->count();
+                            }
+                            ?>
+                            <a class="nav-link" href="{{ route('waiter.keranjang') }}">Keranjang
+                                <span class="badge badge-danger">{{ $notif }}</span>
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link masuk" href="{{ route('logout') }}">Keluar</a>

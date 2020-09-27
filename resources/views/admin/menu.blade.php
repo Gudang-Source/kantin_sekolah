@@ -1,6 +1,6 @@
-@include('templates.admin.header')
-@include('templates.admin.sidebar')
-@include('templates.admin.topbar')
+@include('templates.admin_kasir.header')
+@include('templates.admin_kasir.sidebar')
+@include('templates.admin_kasir.topbar')
 
 <!-- BREADCRUMB-->
 <section class="au-breadcrumb m-t-75">
@@ -10,12 +10,15 @@
                 <div class="col-md-12">
                     <div class="au-breadcrumb-content">
                         <div class="au-breadcrumb-left">
-                            <span class="au-breadcrumb-span">Kamu sedang berada di :</span>
+                        <span class="au-breadcrumb-span">Kamu sedang berada di :</span>
                             <ul class="list-unstyled list-inline au-breadcrumb__list">
+                                <li class="list-inline-item active">
+                                    <a href="#">Admin</a>
+                                </li>
                                 <li class="list-inline-item seprate">
                                     <span>/</span>
                                 </li>
-                                <li class="list-inline-item">Masyarakat</li>
+                                <li class="list-inline-item">Menu</li>
                             </ul>
                         </div>
                         <button class="au-btn au-btn-icon au-btn--green" data-toggle="modal" data-target="#mediumModal">
@@ -146,4 +149,4 @@
     </div>
 </div>
 <!-- end tambah menu -->
-@include('templates.admin.footer')
+@include('templates.admin_kasir.footer')

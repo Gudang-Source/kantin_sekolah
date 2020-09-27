@@ -1,5 +1,5 @@
-@include('templates.kasir.header')
-@include('templates.kasir.navbar')
+@include('templates.waiter.header')
+@include('templates.waiter.navbar')
 
 <section id="menu">
     <div class="row">
@@ -22,10 +22,19 @@
             </div>
         </div>
         <div class="col-md-9">
-            <div class="form-group">
-                <input type="text" name="country" id="country" placeholder="Masukkan Nama Menu" class="form-control" style="width:450px;">
-                <button class="btn btn-primary mt-3">Cari Menu</button>
+            @if(session()->has('pesanSuccess'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">{{ Session::get('pesanSuccess') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            @endif
+            <form method="GET" action="{{ route('waiter.cari') }}">
+                <div class="form-group">
+                    <input type="text" name="nama_menu" id="nama_menu" placeholder="Masukkan Nama Menu" class="form-control" style="width:450px;">
+                    <button type="submit" class="btn btn-primary mt-3">Cari Menu</button>
+                </div>
+            </form>
             <div class="row">
                 @forelse ($data_menu as $menu)
                 <div class="card">
@@ -36,12 +45,11 @@
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Tersisa {{ $menu->stok }}</small>
-                        @if($menu->stok < 1)
-                        <button class="btn btn-danger" style="float: right;">Habis</button>
-                        @endif
-                        @if($menu->stok > 1)
-                        <a href="/order/{{ $menu->id_menu }}" class="btn btn-primary" style="float: right;">Pesan</a>
-                        @endif
+                        @if($menu->stok < 1) <button class="btn btn-danger" style="float: right;">Habis</button>
+                            @endif
+                            @if($menu->stok > 1)
+                            <a href="/order/{{ $menu->id_menu }}" class="btn btn-primary" style="float: right;">Pesan</a>
+                            @endif
                     </div>
                 </div>
                 @empty
@@ -52,4 +60,4 @@
         </div>
     </div>
 </section>
-@include('templates.kasir.footer')
+@include('templates.waiter.footer')

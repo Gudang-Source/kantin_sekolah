@@ -32,8 +32,8 @@
                 </div>
                 <div class="col-6 text-left">
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="cb1">
-                        <label class="custom-control-label" for="cb1">Ingat Saya</label>
+                        <input type="checkbox" class="custom-control-input" id="showPass" onclick="showPass()">
+                        <label class="custom-control-label" for="showPass">Lihat Password</label>
                     </div>
                 </div>
                 <div class="col-6 text-right">
