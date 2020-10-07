@@ -1,6 +1,6 @@
-@include('templates.admin_kasir.header')
-@include('templates.admin_kasir.sidebar')
-@include('templates.admin_kasir.topbar')
+@include('templates.header')
+@include('templates.sidebar')
+@include('templates.topbar')
 
 <!-- BREADCRUMB-->
 <section class="au-breadcrumb m-t-75">
@@ -10,7 +10,7 @@
                 <div class="col-md-12">
                     <div class="au-breadcrumb-content">
                         <div class="au-breadcrumb-left">
-                        <span class="au-breadcrumb-span">Kamu sedang berada di :</span>
+                            <span class="au-breadcrumb-span">Kamu sedang berada di :</span>
                             <ul class="list-unstyled list-inline au-breadcrumb__list">
                                 <li class="list-inline-item active">
                                     <a href="#">Admin</a>
@@ -45,6 +45,9 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Data Menu</h5>
+                        <div align="right" class="mb-4">
+                            <button class="btn btn-primary"><i class="zmdi zmdi-print"></i> Cetak</button>
+                        </div>
                         @if(session()->has('pesanSuccess'))
                         <div class="alert alert-success">{{ session()->get('pesanSuccess') }}</div>
                         @endif
@@ -65,7 +68,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        @forelse ($data_menu as $menu)
+                                        @forelse ($allMenu as $menu)
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $menu->nama_menu }}</td>
                                         <td>{{ $menu->harga }}</td>
@@ -110,8 +113,8 @@
                 </button>
             </div>
             <div class="modal-body ">
-                <form method="POST" action="{{ url('/admin/menu') }}" method="post" enctype="multipart/form-data">
-                {{ csrf_field() }}
+                <form method="POST" action="{{ url('/admin/menu') }}" enctype="multipart/form-data">
+                    {{ csrf_field() }}
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Nama menu</label>
                         <input type="text" class="form-control" name="nama_menu" id="exampleFormControlInput1" placeholder="">
@@ -149,4 +152,4 @@
     </div>
 </div>
 <!-- end tambah menu -->
-@include('templates.admin_kasir.footer')
+@include('templates.footer')

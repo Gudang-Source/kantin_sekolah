@@ -34,10 +34,12 @@ class AuthController extends Controller
             Session::put('gambar', $data->gambar);
 
             session(['berhasil_login' => true]);
-            if ($data->id_level == "1") {
+            if ($data->id_level == "0") {
+                return redirect()->route('index');
+            } else if ($data->id_level == "1") {
                 return redirect()->route('admin.index');
             } else if ($data->id_level == "2") {
-                return redirect()->route('waiter.index');
+                return redirect()->route('waiter.order');
             } else if ($data->id_level == "3") {
                 return redirect()->route('kasir.order');
             }
@@ -52,22 +54,22 @@ class AuthController extends Controller
             'nama' => 'required|min:4',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|confirmed',
-            'id_level' => 'required',
             'gambar' => 'required',
         ]);
 
-        $menu = new User();
-        $menu->nama = $validateData['nama'];
-        $menu->email = $validateData['email'];
-        $menu->password = bcrypt($validateData['password']);
-        $menu->id_level = $validateData['id_level'];
+        $user = new User();
+        $user->nama = $validateData['nama'];
+        $user->email = $validateData['email'];
+        $user->password = bcrypt($validateData['password']);
+        $user->id_level = 0;
+        $user->status = "Menunggu";
         if ($files = $request->file('gambar')) {
             $destinationPath = 'assets/img/user/'; // upload path
             $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
             $files->move($destinationPath, $profileImage);
-            $menu->gambar = "$profileImage";
+            $user->gambar = "$profileImage";
         }
-        $menu->save();
+        $user->save();
 
         return redirect()->route('auth.login')->with('pesanSuccess', "Selamat! Akun {$validateData['nama']} berhasil di Dibuat!");
     }
@@ -75,6 +77,34 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         $request->session()->flush();
-        return redirect()->route('auth.login')->with('pesanDanger', "Anda telah keluar!");
+        return redirect()->route('auth.login')->with('pesanSuccess', "Anda telah keluar!");
+    }
+
+    public function lupaPassword()
+    {
+        return view('auth/forgot-password');
+    }
+
+    public function cariEmail(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+        if (empty($user)) {
+            return redirect()->route('lupa.password')->with('pesanDanger', "Email anda tidak di termukan!");
+        } else {
+            return view('auth/set-password', ['user' => $user]);
+        }
+    }
+
+    public function setPassword(Request $request)
+    {
+        $validateData = $request->validate([
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        $user = User::where('id_user', $request->id_user)->first();
+        $user->password = bcrypt($validateData['password']);
+        $user->update();
+
+        return redirect()->route('auth.login')->with('pesanSuccess', "Password {$user->nama} berhasil di ubah.");
     }
 }

@@ -1,6 +1,6 @@
-@include('templates.admin_kasir.header')
-@include('templates.admin_kasir.sidebar')
-@include('templates.admin_kasir.topbar')
+@include('templates.header')
+@include('templates.sidebar')
+@include('templates.topbar')
 
 <!-- BREADCRUMB-->
 <section class="au-breadcrumb m-t-75">
@@ -77,4 +77,4 @@
     </div>
 </section>
 <!-- End Of Content -->
-@include('templates.admin_kasir.footer')
+@include('templates.footer')

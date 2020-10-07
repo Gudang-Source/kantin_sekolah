@@ -17,6 +17,9 @@
     if($id_level == "1") {
         $level = "Admin";
     }
+    else if($id_level == "2") {
+        $level = "Kasir";
+    }
     else if($id_level == "3") {
         $level = "Kasir";
     }

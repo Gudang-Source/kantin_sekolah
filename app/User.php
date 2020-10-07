@@ -15,10 +15,21 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $primaryKey = 'id_user';
 
     protected $fillable = [
-        'name', 'email', 'password', 'id_level', 'gambar',
+        'name', 
+        'email', 
+        'password', 
+        'id_level', 
+        'gambar',
+        'status',
     ];
+
+    public function level()
+    {
+        return $this->belongsTo('App\Level', 'id_level', 'id_level');
+    }
 
     /**
      * The attributes that should be hidden for arrays.

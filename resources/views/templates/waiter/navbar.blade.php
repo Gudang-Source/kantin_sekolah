@@ -26,8 +26,7 @@
                             $order = \App\Order::where('id_user', Session::get('id_user'))->where('status_order', "0")->first();
                             if (empty($order)) {
                                 $notif = "";
-                            }
-                            else {
+                            } else {
                                 $notif = \App\Detail_order::where('id_order', $order->id_order)->count();
                             }
                             ?>
@@ -35,8 +34,15 @@
                                 <span class="badge badge-danger">{{ $notif }}</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link masuk" href="{{ route('logout') }}">Keluar</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle masuk" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Akun
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('waiter.profile') }}">Akun Saya</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('logout') }}">Keluar</a>
+                            </div>
                         </li>
                     </ul>
                 </div>

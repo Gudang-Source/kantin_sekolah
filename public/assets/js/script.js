@@ -1,39 +1,102 @@
 $(document).ready(function () {
-	// $('.tmbl-jumlah').on('click', function() {
-	// 	var nama = $(this).data('nama');
-	// 	var harga = $(this).data('harga');
+    $('#ubah-password').hide();
+    $('#btn-batal-ubah-password').hide();
+    $('#loading-bayar').hide();
 
-	// 	$('#nama').val(nama);
-	// 	$('#harga').val(harga);		
+    $('#tabelKeranjang').DataTable();
+    $('#tabelMenu').DataTable();
 
-	// 	$('#jumlahPesan').modal('show');
-	// })
+    // $('.btn-jumlah').on('click', function () {
+    //     var nama_menu = $(this).data('nama');
+    //     var jumlah = $(this).data('jumlah');
 
-	$('.btn-jumlah').on('click', function() {
-		var nama_menu = $(this).data('nama');
-		var jumlah = $(this).data('jumlah');
+    //     $('#nama_menu').val(nama_menu);
+    //     $('#jumlah').val(jumlah);
 
-		$('#nama_menu').val(nama_menu);
-		$('#jumlah').val(jumlah);		
+    //     $('#ubahJumlah').modal('show');
+    // })
 
-		$('#ubahJumlah').modal('show');
-	})
-
-	$('#tabelMenu').DataTable();
     // Admin
     // Edit menu
-	$('.tmbl-edit-menu').on('click', function () {
-		var id = $(this).data('id');
-		var nama = $(this).data('nama');
+    $('.tmbl-edit-menu').on('click', function () {
+        var id = $(this).data('id');
+        var nama = $(this).data('nama');
 
-		$('.id').val(id);
-		$('.nama_menu').val(nama);
+        $('.id').val(id);
+        $('.nama_menu').val(nama);
 
-		$('#editMenu').modal('show');
-	});
+        $('#editMenu').modal('show');
+    });
 
     // Hapus menu
-	$('.tmbl-hapus-menu').on('click', function () {
-		$('#hapusMenu').modal('show');
-	});
+    $('.tmbl-hapus-menu').on('click', function () {
+        $('#hapusMenu').modal('show');
+    });
+
+    ///////////////////////////////////////////////////////////////
+
+    //Kasir
+    $('.btn-form-bayar').on('click', function () {
+
+        var id_order = $(this).data('id');
+        var jumlah_harga = $(this).data('jumlah');
+
+        $('#id_order').val(id_order);
+        $('#jumlah_harga').val(jumlah_harga);
+
+        $('#total_bayar').keyup(function () {
+            var bayar = document.getElementById("total_bayar").value;
+
+            if (bayar > jumlah_harga)
+                $('#bayar-kurang').hide();
+            else
+                $('#bayar-kurang').show();
+            var total = document.getElementById("jumlah_harga").value;
+            var bayar = document.getElementById("total_bayar").value;
+
+            $('#kembalian').val(bayar - total);
+        })
+
+    })
+
+    //Waiter
+
+    //Jumlah Order
+    $('.btn-jumlah-order').on('click', function () {
+        var id = $(this).data('id');
+        var nama = $(this).data('nama');
+
+        $('#id_menu').val(id);
+        $('#nama').val(nama);
+    });
+
+    // Edit Order
+    $('.btn-edit-order').on('click', function () {
+        var id = $(this).data('id');
+        var nama = $(this).data('nama');
+        var jumlah = $(this).data('jumlah');
+
+        $('#id_detail_order').val(id);
+        $('#nama_menu').val(nama);
+        $('#jumlah').val(jumlah);
+    });
+
+    // Hapus order
+    $('.btn-delete-order').on('click', function () {
+        id = $(this).data('id')
+
+        $('.id_detail_order').val(id);
+    });
+
+    $('#btn-ubah-password').on('click', function () {
+        $('#ubah-password').show();
+        $('#btn-ubah-password').hide();
+        $('#btn-batal-ubah-password').show();
+    })
+
+    $('#btn-batal-ubah-password').on('click', function () {
+        $('#ubah-password').hide();
+        $('#btn-batal-ubah-password').hide();
+        $('#btn-ubah-password').show();
+    })
 });

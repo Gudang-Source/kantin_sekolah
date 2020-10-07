@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
 use App\Menu;
 use App\User;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
     public function index()
     {
+        $user = User::where('id_user', Session::get('id_user'))->first();
         $allMenu = Menu::all();
-        return view('admin/menu', ['data_menu' => $allMenu]);
+        return view('admin/menu', compact('user', 'allMenu'));
     }
 
     public function store(Request $request)
@@ -43,14 +45,16 @@ class MenuController extends Controller
 
     public function show($menu)
     {
-        $m = Menu::find($menu);
-        return view('admin/detail-menu', ['menu' => $m]);
+        $user = User::where('id_user', Session::get('id_user'))->first();
+        $menu = Menu::find($menu);
+        return view('admin/detail-menu', compact('user','menu'));
     }
 
     public function edit($menu)
     {
+        $user = User::where('id_user', Session::get('id_user'))->first();
         $m = Menu::find($menu);
-        return view('admin/edit-menu', ['menu' => $m]);
+        return view('admin/edit-menu', compact('user','m'));
     }
 
     public function update(Request $request, Menu $menu)
@@ -61,18 +65,21 @@ class MenuController extends Controller
             'kategori_menu' => 'required',
             'stok' => 'required',
         ]);
+        $update = Menu::where('id_menu', $menu->id_menu)->first();
         if ($files = $request->file('gambar')) {
             $destinationPath = 'assets/img/menu'; // upload path
             $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
             $files->move($destinationPath, $profileImage);
-            $update['gambar'] = "$profileImage";
+            $image_path = public_path() . '/assets/img/menu/' . $update->gambar;
+            unlink($image_path);
+            $update->gambar = "$profileImage";
         }
-        $update['nama_menu'] = $request->get('nama_menu');
-        $update['harga'] = $request->get('harga');
-        $update['kategori_menu'] = $request->get('kategori_menu');
-        $update['stok'] = $request->get('stok');
+        $update->nama_menu = $request->get('nama_menu');
+        $update->harga = $request->get('harga');
+        $update->kategori_menu = $request->get('kategori_menu');
+        $update->stok = $request->get('stok');
+        $update->update();
 
-        Menu::where('id_menu', $menu->id_menu)->update($update);
         return redirect()->route('admin.menu')->with('pesanSuccess', "Data  {$request['nama_menu']} berhasil di Ubah!");
     }
 

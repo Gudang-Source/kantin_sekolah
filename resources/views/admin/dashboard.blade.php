@@ -1,6 +1,6 @@
-@include('templates.admin_kasir.header')
-@include('templates.admin_kasir.sidebar')
-@include('templates.admin_kasir.topbar')
+@include('templates.header')
+@include('templates.sidebar')
+@include('templates.topbar')
 
 <!-- BREADCRUMB-->
 <section class="au-breadcrumb m-t-75">
@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-3">
                     <div class="statistic__item">
-                        <h2 class="number">{{ $user }}</h2>
+                        <h2 class="number">{{ $jumlah_user }}</h2>
                         <span class="desc">User</span>
                         <div class="icon">
                             <i class="zmdi zmdi-account-o"></i>
@@ -76,4 +76,4 @@
 </section>
 <!-- END STATISTIC-->
 
-@include('templates.admin_kasir.footer')
+@include('templates.footer')

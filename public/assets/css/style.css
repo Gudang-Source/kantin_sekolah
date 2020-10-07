@@ -37,11 +37,11 @@ body {
 }
 
 .masuk {
-    color: #f39c12 !important;
+    color: #57b846 !important;
 }
 
 .masuk:hover {
-    border: 1px solid #f39c12;
+    border: 1px solid #57b846;
 }
 
 .nav-link.active,
@@ -114,38 +114,6 @@ body {
 
 /* //////////////////////////////////// */
 
-#hot-sale h1 {
-    text-align: center;
-    font-family: 'Lobster', cursive;
-    color: #f39c12;
-}
-
-#hot-sale .card {
-    width: 265px;
-    margin: 10px;
-}
-
-#hot-sale .card-img-top {
-    width: auto;
-    height: 200px;
-}
-
-#hot-sale .card-title {
-    color: #f39c12;
-}
-
-#hot-sale .btn-pesan {
-    margin: auto;
-    background-color: #f39c12;
-    color: #fff;
-}
-
-#hot-sale .btn-pesan:hover {
-    background-color: #d68b12;
-}
-
-/* ////////////////////////////////////// */
-
 #menu {
     padding-top: 40px;
 }
@@ -153,7 +121,7 @@ body {
 #menu h1 {
     text-align: center;
     font-family: 'Lobster', cursive;
-    color: #f39c12;
+    color: #57b846;
 }
 
 #menu .filter {
@@ -163,7 +131,7 @@ body {
 #menu h3{
     font-family: 'Lobster', cursive;
     text-align: center;
-    color: #f39c12;
+    color: #57b846;
 }
 
 #menu hr {
@@ -183,5 +151,5 @@ body {
 }
 
 #menu .card-title {
-    color: #f39c12;
+    color: #57b846;
 }

@@ -8,18 +8,22 @@ use Illuminate\Support\Facades\Session;
 use App\Detail_order;
 use App\Menu;
 use App\Order;
+use App\User;
 use Carbon\Carbon;
 
 class OrderController extends Controller
 {
     public function index()
     {
-        $menu = Menu::paginate(6);
-        return view('waiter/order', ['data_menu' => $menu]);
+        $user = User::where('id_user', session::get('id_user'))->first();
+        $data_menu = Menu::paginate(6);
+        return view('waiter/order', compact('user', 'data_menu'));
     }
 
     public function cari(Request $request)
     {
+        $user = User::where('id_user', session::get('id_user'))->first();
+
         // menangkap data pencarian
         $cari = $request->nama_menu;
 
@@ -27,7 +31,7 @@ class OrderController extends Controller
         $menu = Menu::where('nama_menu', 'like', "%" . $cari . "%")->paginate(6);
 
         // mengirim data pegawai ke view index
-        return view('waiter/order', ['data_menu' => $menu]);
+        return view('waiter/order', ['user'=>$user, 'data_menu' => $menu]);
     }
 
     public function order($id_menu)
@@ -36,17 +40,17 @@ class OrderController extends Controller
         return view('waiter/jumlah_order', ['menu' => $m]);
     }
 
-    public function prosesOrder(Request $request, $id_menu)
+    public function prosesOrder(Request $request)
     {
-        $menu = Menu::where('id_menu', $id_menu)->first();
+        $menu = Menu::where('id_menu', $request->id_menu)->first();
         $tanggal = Carbon::now();
 
         //Jika jumlah order melebihi Stok
         if ($request->jumlah_order > $menu->stok) {
-            return redirect('order/' . $id_menu)->with('pesanDanger', "Mohon maaf, jumlah order anda melebihi stok yang tersedia.");
+            return redirect('order')->with('pesanDanger', "Mohon maaf, jumlah order anda melebihi stok yang tersedia.");
         }
         else if($request->jumlah_order < "1") {
-            return redirect('order/' . $id_menu)->with('pesanDanger', "Tolong masukkan jumlah yang tepat.");
+            return redirect('order')->with('pesanDanger', "Tolong masukkan jumlah yang tepat.");
         }
 
         //Cek order
@@ -96,6 +100,6 @@ class OrderController extends Controller
         $order->jumlah_harga = $order->jumlah_harga + $menu->harga * $request->jumlah_order;
         $order->update();
 
-        return redirect('/order')->with('pesanSuccess', "Menu berhasil ditambahkan ke Keranjang.");
+        return redirect('/waiter/order')->with('pesanSuccess', "{$menu['nama_menu']} berhasil ditambahkan ke Keranjang.");
     }
 }

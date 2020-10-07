@@ -24,6 +24,9 @@
                                     if($id_level == "1") {
                                         $profile = "/admin/profile";
                                     }
+                                    else if($id_level == "2") {
+                                        $profile = "/waiter/profile";
+                                    }
                                     else if($id_level == "3") {
                                         $profile = "/kasir/profile";
                                     }

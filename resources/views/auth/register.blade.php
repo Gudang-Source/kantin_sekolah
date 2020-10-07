@@ -32,20 +32,6 @@
             <div class="form-group">
                 <input type="file" class="form-control-file" name="gambar" id="gambar">
             </div>
-            <div class="form-level">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="id_level" id="radioAdmin" value="1">
-                    <label class="form-check-label" for="inlineRadio2">Admin</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="id_level" id="radioWaiter" value="2" ">
-                    <label class=" form-check-label" for="inlineRadio1">Waiter</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="id_level" id="radioKasir" value="3">
-                    <label class="form-check-label" for="inlineRadio2">Kasir</label>
-                </div>
-            </div>
             <div class="row mb-3">
                 <div class="text-left mb-3">
                     <button type="submit" class="btn">Daftar</button>
